@@ -30,28 +30,28 @@ phases:
       - echo building prod images...
       - >
         docker build \
-          --cache-from $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/test-driven-users:prod \
+          --cache-from 681574075584.dkr.ecr.us-west-1.amazonaws.com/test-driven-users:prod \
           -f services/users/Dockerfile.prod \
-          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/test-driven-users:prod \
+          -t 681574075584.dkr.ecr.us-west-1.amazonaws.com/test-driven-users:prod \
           ./services/users
       - >
         docker build \
           --target builder \
-          --cache-from $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/test-driven-client:builder \
+          --cache-from 681574075584.dkr.ecr.us-west-1.amazonaws.com/test-driven-client:builder \
           -f services/client/Dockerfile.prod \
-          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/test-driven-client:builder \
+          -t 681574075584.dkr.ecr.us-west-1.amazonaws.com/test-driven-client:builder \
           --build-arg NODE_ENV=production \
           --build-arg REACT_APP_USERS_SERVICE_URL=$REACT_APP_USERS_SERVICE_URL \
           ./services/client
       - >
         docker build \
-          --cache-from $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/test-driven-client:prod \
+          --cache-from 681574075584.dkr.ecr.us-west-1.amazonaws.com/test-driven-client:prod \
           -f services/client/Dockerfile.prod \
-          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/test-driven-client:prod \
+          -t 681574075584.dkr.ecr.us-west-1.amazonaws.com/test-driven-client:prod \
           ./services/client
   post_build:
     commands:
       - echo pushing prod images to ecr...
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/test-driven-users:prod
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/test-driven-client:builder
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/test-driven-client:prod
+      - docker push 681574075584.dkr.ecr.us-west-1.amazonaws.com/test-driven-users:prod
+      - docker push 681574075584.dkr.ecr.us-west-1.amazonaws.com/test-driven-client:builder
+      - docker push 681574075584.dkr.ecr.us-west-1.amazonaws.com/test-driven-client:prod
