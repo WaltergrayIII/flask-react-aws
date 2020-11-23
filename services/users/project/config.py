@@ -14,7 +14,7 @@ class BaseConfig:
 
 
 class DevelopmentConfig(BaseConfig):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("flask-react-db.ccbny1vltlpm.us-west-1.rds.amazonaws.com")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     BCRYPT_LOG_ROUNDS = 4
 
 
@@ -27,5 +27,5 @@ class TestingConfig(BaseConfig):
 
 
 class ProductionConfig(BaseConfig):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("flask-react-db.ccbny1vltlpm.us-west-1.rds.amazonaws.com")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     SECRET_KEY = os.getenv("SECRET_KEY", "my_precious")
