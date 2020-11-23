@@ -10,7 +10,7 @@ services:
     environment:
       - FLASK_ENV=production
       - APP_SETTINGS=project.config.ProductionConfig
-      - DATABASE_URL=postgres://webapp:zGO6yOqKmbUzQlvLgPC7@flask-react-db.ccbny1vltlpm.us-west-1.rds.amazonaws.com:5432/users_prod
+      - DATABASE_URL=postgres://webapp:zGO6yOqKmbUzQlvLgPC7@http://flask-react-db.ccbny1vltlpm.us-west-1.rds.amazonaws.com:5432/users_prod
       - DATABASE_TEST_URL=postgres://postgres:postgres@users-db:5432/users_test
       - SECRET_KEY=my_precious
     depends_on:
