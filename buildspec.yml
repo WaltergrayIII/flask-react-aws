@@ -12,10 +12,10 @@ phases:
   pre_build:
     commands:
       - echo logging in to ecr...
-      - $(aws ecr get-login --no-include-email --region $AWS_REGION)
-      - docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/test-driven-users:prod || true
-      - docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/test-driven-client:builder || true
-      - docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/test-driven-client:prod || true
+      - $(aws ecr get-loginaws ecr get-login-password --region us-west-1)
+      - docker pull 681574075584.dkr.ecr.us-west-1.amazonaws.com/test-driven-users:prod || true
+      - docker pull 681574075584.dkr.ecr.us-west-1.amazonaws.com/test-driven-client:builder || true
+      - docker pull 681574075584.dkr.ecr.us-west-1.amazonaws.com/test-driven-client:prod || true
   build:
     commands:
       - echo building and testing dev images...
