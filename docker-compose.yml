@@ -13,7 +13,7 @@ services:
     environment:
       - FLASK_ENV=development
       - APP_SETTINGS=project.config.DevelopmentConfig
-      - DATABASE_URL=flask-react-db.ccbny1vltlpm.us-west-1.rds.amazonaws.com
+      - DATABASE_URL=fpostgres://postgres:postgres@users-db:5432/users_prod
       - DATABASE_TEST_URL=postgresql://postgres:postgres@users-db:5432/users_test
     depends_on:
       - users-db
