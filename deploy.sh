@@ -1,5 +1,3 @@
-#!/bin/sh
-
 JQ="jq --raw-output --exit-status"
 
 configure_aws_cli() {
